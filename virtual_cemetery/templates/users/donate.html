@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}cloudpets - Пожертвование{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-header  text-center">
+          <h3 class="mb-0">Пожертвование</h3>
+        </div>
+        <div class="card-body">
+          <p class="lead text-center">Вы можете помочь сделать наш сайт лучше, сделав пожертвование. Ваш вклад позволит нам улучшить функционал и качество предоставляемых услуг.</p>
+          <hr>
+          <p class="text-center">Для совершения пожертвования вы можете воспользоваться следующими реквизитами:</p>
+          <div class="text-center">
+            <ul class="list-unstyled">
+              <li>Номер банковского счета: <strong>1</strong></li>
+              <li>Получатель: <strong>1</strong></li>
+              <li>Банк-получатель: <strong>1»</strong></li>
+            </ul>
+          </div>
+          <div class="text-center">
+            <img src="{% static 'img/cloudpets-header-logo.png' %}" alt="cloudpets" class="img-fluid" style="max-width: 300px;">
+          </div>
+          <hr>
+          <p class="text-center">Мы благодарим вас за вашу поддержку!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

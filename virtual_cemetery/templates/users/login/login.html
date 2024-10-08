@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <div class="container-xl mt-4">
+          <div style="display:flex; column-gap:10px; margin-left:10px; margin-bottom:20px;">
+          <img src="{% static 'img/cloudpets-header-logo.png' %}" alt="Logo" width="50" height="50">
+          <h1>Войти</h1>
+          </div>
+          {% if form.non_field_errors %}
+          <div class="alert alert-danger">
+              {% for error in form.non_field_errors %}
+                  {{ error }}
+              {% endfor %}
+          </div>
+          {% endif %}
+
+          {% include "includes/messages.html" %}
+
+          {% if request.session.show_resend_button %}
+          <form action="{% url 'users:resend_activation_email' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="username" value="{{ form.username.value }}">
+            <button type="submit" class="btn btn-primary m-3">Отправить письмо еще раз</button>
+          </form>
+          {% endif %}
+
+          <form method="post" class="container">
+              {% csrf_token %}
+              <div class="list-group">
+                  {% include "includes/form.html" %}
+              </div>
+              <br>
+              <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Войти</button>
+          </form>
+          <hr class="featurette-divider">
+          <a href="{% url "users:password-reset" %}" class="btn btn-link btn-sm" style="text-decoration: none;">Забыли пароль?</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock content %}

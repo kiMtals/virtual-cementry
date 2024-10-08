@@ -1,0 +1,8 @@
+[flake8]
+application_import_names = about, animals, core, event, faq, feedback, homepage, users, virtual_cemetery
+inline-quotes = double
+exclude = .git, __pycache__, migrations, venv
+import-order-style = google
+max-line-length = 120
+max-complexity = 10
+max-expression-complexity = 10
